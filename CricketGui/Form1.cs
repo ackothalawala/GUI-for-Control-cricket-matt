@@ -150,48 +150,6 @@ namespace CricketGui
             }
         }
 
-        private void ConnectButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!SerialPort1.IsOpen)
-                {
-                    SerialPort1.PortName = cBoxPort.SelectedItem.ToString();
-                    SerialPort1.BaudRate = int.Parse(textBoxBaudRate.Text);
-                    SerialPort1.Open();
-                    MessageBox.Show("Connection Opened", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Already Connected", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DisconnectButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (SerialPort1.IsOpen)
-                {
-                    SerialPort1.Close();
-                    MessageBox.Show("Connection Closed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Port is not open", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Disconnection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (SerialPort1.IsOpen)
@@ -243,5 +201,47 @@ namespace CricketGui
         private void chart1_Click(object sender, EventArgs e)
         {
                     }
+
+        private void ConnectButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!SerialPort1.IsOpen)
+                {
+                    SerialPort1.PortName = cBoxPort.SelectedItem.ToString();
+                    SerialPort1.BaudRate = int.Parse(textBoxBaudRate.Text);
+                    SerialPort1.Open();
+                    MessageBox.Show("Connection Opened", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Already Connected", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisconnectButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SerialPort1.IsOpen)
+                {
+                    SerialPort1.Close();
+                    MessageBox.Show("Connection Closed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Port is not open", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Disconnection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

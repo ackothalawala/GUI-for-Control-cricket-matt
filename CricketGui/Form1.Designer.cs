@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.LR = new System.Windows.Forms.TrackBar();
             this.Reset = new System.Windows.Forms.Button();
@@ -45,12 +45,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxBaudRate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cBoxPort = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxBaudRate = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ConnectButton = new System.Windows.Forms.Button();
+            this.DisconnectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FB)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -231,6 +233,14 @@
             this.groupBox3.Text = "COM Port Select";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // textBoxBaudRate
+            // 
+            this.textBoxBaudRate.Location = new System.Drawing.Point(101, 78);
+            this.textBoxBaudRate.Name = "textBoxBaudRate";
+            this.textBoxBaudRate.Size = new System.Drawing.Size(121, 26);
+            this.textBoxBaudRate.TabIndex = 3;
+            this.textBoxBaudRate.TextChanged += new System.EventHandler(this.textBoxBaudRate_TextChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -262,14 +272,6 @@
             this.label3.Text = "COM Port";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBoxBaudRate
-            // 
-            this.textBoxBaudRate.Location = new System.Drawing.Point(101, 78);
-            this.textBoxBaudRate.Name = "textBoxBaudRate";
-            this.textBoxBaudRate.Size = new System.Drawing.Size(121, 26);
-            this.textBoxBaudRate.TabIndex = 3;
-            this.textBoxBaudRate.TextChanged += new System.EventHandler(this.textBoxBaudRate_TextChanged);
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -287,23 +289,43 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(608, 100);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 1;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.MarkerSize = 1;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 14;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // ConnectButton
+            // 
+            this.ConnectButton.Location = new System.Drawing.Point(891, 325);
+            this.ConnectButton.Name = "ConnectButton";
+            this.ConnectButton.Size = new System.Drawing.Size(75, 23);
+            this.ConnectButton.TabIndex = 15;
+            this.ConnectButton.Text = "Connect";
+            this.ConnectButton.UseVisualStyleBackColor = true;
+            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click_1);
+            // 
+            // DisconnectButton
+            // 
+            this.DisconnectButton.Location = new System.Drawing.Point(913, 390);
+            this.DisconnectButton.Name = "DisconnectButton";
+            this.DisconnectButton.Size = new System.Drawing.Size(75, 23);
+            this.DisconnectButton.TabIndex = 16;
+            this.DisconnectButton.Text = "Disconnect";
+            this.DisconnectButton.UseVisualStyleBackColor = true;
+            this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click_1);
             // 
             // Form1
             // 
@@ -311,6 +333,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1044, 623);
+            this.Controls.Add(this.DisconnectButton);
+            this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -354,6 +378,8 @@
         private System.Windows.Forms.TextBox textBoxBaudRate;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button ConnectButton;
+        private System.Windows.Forms.Button DisconnectButton;
     }
 }
 
